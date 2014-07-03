@@ -6,6 +6,7 @@
 package Controller;
 
 import Metier.ModeleCartouche;
+import Model.ModeleDAO;
 import java.util.HashMap;
 
 /**
@@ -21,7 +22,8 @@ public class ManageModeleCartouche {
     }
 
     public void ajouterModele(ModeleCartouche modele) {
-        
+        ModeleDAO mod = new ModeleDAO();
+        //mod.insert(modele);
     }
 
     public void supprimerModele(ModeleCartouche modele) {

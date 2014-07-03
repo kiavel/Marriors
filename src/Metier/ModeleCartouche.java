@@ -14,11 +14,15 @@ public class ModeleCartouche {
     private long ref;
     private String couleur;
     private String type;
+    private Double prix;
+    private int nbPages;
     
-    public ModeleCartouche(long ref, String couleur, String type) {
+    public ModeleCartouche(long ref, String couleur, String type, Double prix, int nbPages) {
         this.ref = ref;
         this.couleur = couleur;
         this.type = type;
+        this.prix = prix;
+        this.nbPages = nbPages;
     }
 
     public long getRef() {

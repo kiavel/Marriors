@@ -7,6 +7,7 @@ package Controller;
 
 import Metier.ModeleCartouche;
 import Model.ModeleDAO;
+import java.sql.Connection;
 import java.util.HashMap;
 
 /**
@@ -16,14 +17,15 @@ import java.util.HashMap;
 public class ManageModeleCartouche {
 
     private ModeleCartouche modele;
+    private Connection conn;
 
     public ManageModeleCartouche(ModeleCartouche modele) {
         this.modele = modele;
     }
 
     public void ajouterModele(ModeleCartouche modele) {
-        ModeleDAO mod = new ModeleDAO();
-        //mod.insert(modele);
+        ModeleDAO mod = new ModeleDAO(this.conn);
+        mod.insert(modele);
     }
 
     public void supprimerModele(ModeleCartouche modele) {

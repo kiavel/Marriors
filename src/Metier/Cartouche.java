@@ -52,13 +52,16 @@ public class Cartouche {
       public Date setdatePeremption() {
         return dateAchat;
     }       
- 
-      public long getid () {
-        return id ;
-    } 
-      public long setid() {
+
+    public int getId() {
         return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+ 
+     
       public long getRef() {
         return ref;
     }

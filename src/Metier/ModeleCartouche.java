@@ -15,15 +15,23 @@ public class ModeleCartouche {
     private String couleur;
     private String type;
     private Double prix;
+    private String taille;
     private int nbPages;
     
-    public ModeleCartouche(long ref, String couleur, String type, Double prix, int nbPages) {
+    public ModeleCartouche(long ref, String couleur, String type, Double prix, int nbPages, String taille) {
         this.ref = ref;
         this.couleur = couleur;
         this.type = type;
         this.prix = prix;
         this.nbPages = nbPages;
+        this.taille = taille;
     }
+
+    public ModeleCartouche(long ref) {
+        this.ref = ref;
+    }
+    
+    
 
     public long getRef() {
         return ref;
@@ -47,6 +55,30 @@ public class ModeleCartouche {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Double prix) {
+        this.prix = prix;
+    }
+
+    public int getNbPages() {
+        return nbPages;
+    }
+
+    public void setNbPages(int nbPages) {
+        this.nbPages = nbPages;
+    }
+
+    public String getTaille() {
+        return taille;
+    }
+
+    public void setTaille(String taille) {
+        this.taille = taille;
     }
     
     

@@ -5,10 +5,13 @@
  */
 package Controller;
 
+import Metier.Cartouche;
 import Metier.ModeleCartouche;
+import Model.CartoucheDAO;
 import Model.ModeleDAO;
 import java.sql.Connection;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -29,15 +32,18 @@ public class ManageModeleCartouche {
     }
 
     public void supprimerModele(ModeleCartouche modele) {
-
+        ModeleDAO mod = new ModeleDAO(this.conn);
+        mod.delete(modele);
     }
 
     public void modifierModele(ModeleCartouche modeleUn, ModeleCartouche modeleDeux) {
-
+        ModeleDAO mod = new ModeleDAO(this.conn);
+        mod.delete(modele);
     }
 
-    public HashMap<ModeleCartouche, Integer> listeModele() {
-        return null;
+    public Map<ModeleCartouche, Long> listeModele() {
+        CartoucheDAO cart = new CartoucheDAO(this.conn);
+        return cart.nbCartoucheParModele();
     }
 
     public int nbSelonService(String service) {

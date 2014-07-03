@@ -7,9 +7,9 @@
 package Model;
 
 /**
- *test lorene
- * @author Frébault
+ *
+ * @author loren_000
  */
-public class testModel {
+public class CartoucheDAO {
     
 }

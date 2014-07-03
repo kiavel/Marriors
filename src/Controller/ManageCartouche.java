@@ -10,6 +10,6 @@ package Controller;
  *
  * @author Nunux
  */
-public class ModeleCartouche {
+public class ManageCartouche {
     
 }

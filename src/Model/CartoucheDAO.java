@@ -20,42 +20,11 @@ import java.util.Map;
  *
  * @author loren_000
  */
-public class CartoucheDAO extends AbstractDAO<Cartouche> {
+public class CartoucheDAO  extends AbstractDAO<Cartouche> {
        
     public CartoucheDAO(Connection conn) {
         super(conn);
     }
-    
-    
-    public Map<ModeleCartouche, Long> nbCartoucheParModele() {
-    
-        Map<ModeleCartouche, Long> lesCart = new HashMap();
-        ModeleCartouche unMod;
-        Statement state = null;
-        
-        try {
-            state = this.conn.createStatement();
-            ResultSet result = state.executeQuery("Select count(id) as nb, fk_ref from cartouche group by fk_ref ;"); 
-            
-            while (result.next()) {
-                unMod = new ModeleCartouche(result.getLong("fk_ref"));
-                lesCart.put(unMod, result.getLong("nb"));
-            }
-            
-            
-            state.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    
-        
-        
-        
-        
-        return lesCart;
-    }
-    
-    
     
     
     
@@ -79,6 +48,30 @@ public class CartoucheDAO extends AbstractDAO<Cartouche> {
         }
         
     }
+    
+    public Map<ModeleCartouche, Integer> nbCartoucheParModele() {
+    
+        Map<ModeleCartouche, Integer> lesCart = new HashMap();
+        ModeleCartouche unMod;
+        Statement state = null;
+        
+        try {
+            state = this.conn.createStatement();
+            ResultSet result = state.executeQuery("Select count(id) as nb, fk_ref from cartouche group by fk_ref ;"); 
+            
+            while (result.next()) {
+                unMod = new ModeleCartouche(result.getLong("fk_ref"));
+                lesCart.put(unMod, result.getInt("nb"));
+            }
+            
+            
+            state.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lesCart;
+    }
+    
     
     @Override
     public void insert(Cartouche uneCar) {

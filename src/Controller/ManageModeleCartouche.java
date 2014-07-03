@@ -41,7 +41,7 @@ public class ManageModeleCartouche {
         mod.delete(modele);
     }
 
-    public Map<ModeleCartouche, Long> listeModele() {
+    public Map<ModeleCartouche, Integer> listeModele() {
         CartoucheDAO cart = new CartoucheDAO(this.conn);
         return cart.nbCartoucheParModele();
     }

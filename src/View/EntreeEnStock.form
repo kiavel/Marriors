@@ -55,7 +55,7 @@
                   </Group>
                   <Component id="LabelResult" alignment="0" min="-2" pref="434" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="145" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,7 +81,7 @@
                   <Component id="TbxCodeBarre" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="LabelCodeBarre" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="109" max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,8 +92,8 @@
         <Property name="toolTipText" type="java.lang.String" value="Scannez le Code Barre"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TbxCodeBarreActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TbxCodeBarreKeyPressed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TbxCodeBarreKeyTyped"/>
       </Events>
     </Component>
     <Component class="com.toedter.calendar.JCalendar" name="CalAchat">

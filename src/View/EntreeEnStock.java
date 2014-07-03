@@ -6,6 +6,8 @@
 
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Frébault
@@ -48,14 +50,12 @@ public class EntreeEnStock extends javax.swing.JFrame {
         });
 
         TbxCodeBarre.setToolTipText("Scannez le Code Barre");
-        TbxCodeBarre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TbxCodeBarreActionPerformed(evt);
-            }
-        });
         TbxCodeBarre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TbxCodeBarreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TbxCodeBarreKeyTyped(evt);
             }
         });
 
@@ -97,7 +97,7 @@ public class EntreeEnStock extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TbxCodeBarre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(LabelResult, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,26 +117,54 @@ public class EntreeEnStock extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TbxCodeBarre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelCodeBarre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TbxCodeBarreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TbxCodeBarreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TbxCodeBarreActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
     }//GEN-LAST:event_formWindowOpened
 
+    private void TbxCodeBarreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TbxCodeBarreKeyTyped
+        // TODO add your handling code here:
+        if(TbxCodeBarre.getText().length()>=13)
+        {    evt.consume(); }
+
+    }//GEN-LAST:event_TbxCodeBarreKeyTyped
+
     private void TbxCodeBarreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TbxCodeBarreKeyPressed
+        // TODO add your handling code here:
         if(evt.getKeyCode()==10){
-            this.LabelResult.setText("OK !!!");
+            
         }
     }//GEN-LAST:event_TbxCodeBarreKeyPressed
-
+    
+    private int calculeCodeBarre(String codebarre12){
+        
+            int code1=Integer.parseInt(codebarre12.substring(0, 1));
+            int code2=Integer.parseInt(codebarre12.substring(1, 1));
+            int code3=Integer.parseInt(codebarre12.substring(2, 1));
+            int code4=Integer.parseInt(codebarre12.substring(3, 1));
+            int code5=Integer.parseInt(codebarre12.substring(4, 1));
+            int code6=Integer.parseInt(codebarre12.substring(5, 1));
+            int code7=Integer.parseInt(codebarre12.substring(6, 1));
+            int code8=Integer.parseInt(codebarre12.substring(7, 1));
+            int code9=Integer.parseInt(codebarre12.substring(8, 1));
+            int code10=Integer.parseInt(codebarre12.substring(9, 1));
+            int code11=Integer.parseInt(codebarre12.substring(10, 1));
+            int code12=Integer.parseInt(codebarre12.substring(11, 1));
+            
+            int s1 = code1+code2*3+code3+code4*3+code5+code6*3+code7+code8*3+code9+code10*3+code11+code12*3;
+            int digite = 10 - (s1%10);
+            
+            String codebarre13= codebarre12;//+ digite.toString();
+        
+        return Integer.parseInt(codebarre13);
+    }
+    
+                              
     /**
      * @param args the command line arguments
      */

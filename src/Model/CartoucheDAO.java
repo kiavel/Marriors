@@ -13,8 +13,12 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,9 +30,7 @@ public class CartoucheDAO  extends AbstractDAO<Cartouche> {
         super(conn);
     }
 
-    public CartoucheDAO() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
     
     
     
@@ -122,6 +124,27 @@ public class CartoucheDAO  extends AbstractDAO<Cartouche> {
     }
     
     
-    
+    public Cartouche findByRef(int ref) throws Exception {
+        Cartouche cart = null;
+        String query = "";
+        
+        try {
+            Statement state = this.conn.createStatement();
+            query = "SELECT date_achat, date_peremption, fk_ref, id "
+                    + "FROM cartouche "
+                    + "WHERE date_peremption ="
+                    + "(SELECT MIN(date_peremption) from cartouche "
+                    + "WHERE fk_ref = " + ref +");";
+            ResultSet result = state.executeQuery(query);
+            cart = new Cartouche(result.getDate("date_achat"),
+            result.getDate("date_peremption"),
+                    result.getInt("id"),
+            ref);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return cart;
+    }
     
 }

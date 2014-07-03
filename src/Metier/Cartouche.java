@@ -6,7 +6,7 @@
 
 package Metier;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -17,27 +17,24 @@ public class Cartouche {
    private  Date dateAchat;
    private  Date datePeremption;
    private  int  id;
-   private  int  ref;
+   private  long  ref;
    
-   public Cartouche (Date dateAchat, Date datePeremption, int id, int ref) {
+   public Cartouche (Date dateAchat, Date datePeremption, int id, long ref) {
        this.dateAchat= dateAchat;
        this.datePeremption=  datePeremption;
        this.id= id;
        this.ref= ref;
       
    }  
-      public void ajouterCartouche(Cartouche modele) {
    
-   }
-      public void supprimerCartouche(Cartouche modele) {
-       
+   public Cartouche (Date dateAchat, Date datePeremption, int ref) {
+       this.dateAchat= dateAchat;
+       this.datePeremption=  datePeremption;
+       this.ref= ref;
       
-   }
-           
-      public int nbSelonParam () {
-           return 0;
-}
-           
+   }  
+
+
       public Date getdateAchat() {
         return dateAchat;
     }       

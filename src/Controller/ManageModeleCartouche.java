@@ -22,23 +22,24 @@ public class ManageModeleCartouche {
     private ModeleCartouche modele;
     private Connection conn;
 
-    public ManageModeleCartouche(ModeleCartouche modele) {
+    public ManageModeleCartouche(ModeleCartouche modele, Connection conn) {
         this.modele = modele;
+        this.conn = conn;
     }
 
-    public void ajouterModele(ModeleCartouche modele) {
+    public void ajouterModele() {
         ModeleDAO mod = new ModeleDAO(this.conn);
-        mod.insert(modele);
+        mod.insert(this.modele);
     }
 
-    public void supprimerModele(ModeleCartouche modele) {
+    public void supprimerModele() {
         ModeleDAO mod = new ModeleDAO(this.conn);
-        mod.delete(modele);
+        mod.delete(this.modele);
     }
 
     public void modifierModele(ModeleCartouche modeleUn, ModeleCartouche modeleDeux) {
         ModeleDAO mod = new ModeleDAO(this.conn);
-        mod.delete(modele);
+        mod.delete(this.modele);
     }
 
     public Map<ModeleCartouche, Integer> listeModele() {

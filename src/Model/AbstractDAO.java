@@ -6,6 +6,7 @@
 
 package Model;
 
+import Controller.SaisieException;
 import java.sql.Connection;
 
 /**
@@ -15,11 +16,11 @@ import java.sql.Connection;
 public abstract class AbstractDAO<T> {
     public Connection conn;
     
-    public AbstractDAO(Connection conn) {
+    public AbstractDAO(Connection conn)  {
         this.conn = conn;
     }
     
-    protected abstract void insert(T obj);
+    protected abstract void insert(T obj) throws SaisieException ;
     
-    protected abstract void update(T obj);
+    protected abstract void update(T obj) throws SaisieException ;
 }

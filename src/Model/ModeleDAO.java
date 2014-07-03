@@ -55,10 +55,13 @@ public class ModeleDAO extends AbstractDAO<ModeleCartouche> {
         String couleur = unMod.getCouleur();
         String type =  unMod.getType();
         String taille = unMod.getTaille();
+        Integer nbPages = unMod.getNbPages();
+        Double prix = unMod.getPrix();
+                
         
         try {
             Statement state = this.conn.createStatement();            
-            state.executeUpdate("Insert into modele(ref,couleur,type,taille) values('"+ref+"','"+couleur+"','"+type+"','"+taille+");"); 
+            state.executeUpdate("Insert into modele(ref,couleur,type,taille,prix,nbpages) values('"+ref+"','"+couleur+"','"+type+"','"+taille+"','"+prix+"','"+nbPages+"');"); 
             state.close();
             
         } catch (SQLException e) {

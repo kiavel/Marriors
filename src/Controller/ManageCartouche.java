@@ -9,27 +9,33 @@ package Controller;
 import Metier.Cartouche;
 import Metier.ModeleCartouche;
 import Model.CartoucheDAO;
+import java.sql.Connection;
 /**
  *
  * @author Nunux
  */
 public class ManageCartouche {
-    CartoucheDAO mod = new CartoucheDAO();
     
-    private Cartouche cartouche;    
+    
+    private Cartouche cartouche;  
+    private Connection conn;
 
-    public ManageCartouche(Cartouche modele) {
-        this.cartouche = modele;
+    public ManageCartouche(Cartouche cart, Connection conn) {
+        this.cartouche = cart;
+        this.conn = conn;
     }
 
-    public void ajouterModele(Cartouche modele) {
-        CartoucheDAO mod = new CartoucheDAO();
-        //mod.insert(modele);
-        mod.insert(modele);
+    public void ajouterCartouche() {
+        CartoucheDAO cart = new CartoucheDAO(conn);
+        cart.insert(this.cartouche);
     }
 
-    public void supprimerCartouche(ModeleCartouche modele) {
-        mod.delete(modele);
+    public void supprimerCartouche() {
+        CartoucheDAO cart = new CartoucheDAO(conn);
+        
+        Cartouche uneCart = cart.findByRef(this.cartouche.getRef());
+        
+        cart.delete(uneCart);
     }
 
     public int nbSelonParam () {

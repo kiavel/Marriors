@@ -5,10 +5,6 @@
  */
 
 package View;
-import javax.swing.JOptionPane;
-import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
-import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
-import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 /**
  *
@@ -21,12 +17,6 @@ public class EntreeEnStock extends javax.swing.JFrame {
      */
     public EntreeEnStock() {
         initComponents();
-        
-        UtilDateModel model = new UtilDateModel();
-        JDatePanelImpl datePanel = new JDatePanelImpl(model);
-        JDatePickerImpl datePicker = new JDatePickerImpl(datePanel);
-
-        this.add(datePicker);
     }
 
     /**
@@ -38,7 +28,6 @@ public class EntreeEnStock extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        utilDateModel3 = new net.sourceforge.jdatepicker.impl.UtilDateModel();
         TbxCodeBarre = new javax.swing.JTextField();
         CalAchat = new com.toedter.calendar.JCalendar();
         LabelCodeBarre = new javax.swing.JLabel();
@@ -192,6 +181,5 @@ public class EntreeEnStock extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPeremption;
     private javax.swing.JLabel LabelResult;
     private javax.swing.JTextField TbxCodeBarre;
-    private net.sourceforge.jdatepicker.impl.UtilDateModel utilDateModel3;
     // End of variables declaration//GEN-END:variables
 }

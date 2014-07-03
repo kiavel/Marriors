@@ -6,7 +6,7 @@
 package Controller;
 
 import Metier.ModeleCartouche;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -32,19 +32,19 @@ public class ManageModeleCartouche {
 
     }
 
-    public ArrayList<ModeleCartouche> listeModele() {
+    public HashMap<ModeleCartouche, Integer> listeModele() {
         return null;
     }
 
-    public int nbSelonService() {
+    public int nbSelonService(String service) {
         return 0;
     }
 
-    public int nbSelonBureau() {
+    public int nbSelonBureau(String bureau) {
         return 0;
     }
 
-    public int nbSelonPersonne() {
+    public int nbSelonPersonne(String personne) {
         return 0;
     }
 }

@@ -133,16 +133,17 @@ public class CartoucheDAO extends AbstractDAO<Cartouche> {
                     + "(SELECT MIN(date_peremption) from cartouche "
                     + "WHERE fk_ref = " + ref + ");";
             ResultSet result = state.executeQuery(query);
-
-            cart = new Cartouche(result.getDate("date_achat"),
-                    result.getDate("date_peremption"),
-                    result.getInt("id"),
-                    ref);
+            if (result.first()) {
+                cart = new Cartouche(result.getDate("date_achat"),
+                        result.getDate("date_peremption"),
+                        result.getInt("id"),
+                        ref);
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        return cart;
+        return null;
     }
 
 }

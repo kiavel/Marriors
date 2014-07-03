@@ -25,6 +25,10 @@ public class CartoucheDAO  extends AbstractDAO<Cartouche> {
     public CartoucheDAO(Connection conn) {
         super(conn);
     }
+
+    public CartoucheDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

@@ -18,6 +18,7 @@ public class Marriors {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Ceci est un test");
+        System.out.println("Ceci est un test de manu");
     }
     
 }

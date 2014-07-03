@@ -7,7 +7,7 @@
 package Model;
 
 /**
- *
+ *test lorene
  * @author Frébault
  */
 public class testModel {
